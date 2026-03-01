@@ -1,0 +1,16 @@
+[Unit]
+Description=TeamTrack distance publisher
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/iot-team-tracker
+EnvironmentFile=/home/ubuntu/iot-team-tracker/.env
+ExecStart=/usr/bin/python3 /home/ubuntu/iot-team-tracker/src/distance_pair.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
